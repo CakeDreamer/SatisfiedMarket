@@ -1,7 +1,5 @@
 package club.sjmc.satisfiedmarket.blocks.MarketBlockUtils;
 
-import club.sjmc.satisfiedmarket.blocks.MarketBlock;
-import club.sjmc.satisfiedmarket.blocks.MarketBlockTileEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 
@@ -13,7 +11,12 @@ public class NonOPStock extends Stock {
         available = 0;
     }
 
-    public boolean supply() {
+    public boolean supply(ItemStack supplement) {
+        if (supplement.isItemEqual(this.singleItemStack)) {
+            available += supplement.getCount();
+            supplement.setCount(0);
+            return true;
+        }
         return false;
     }
 

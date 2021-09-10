@@ -1,6 +1,7 @@
 package club.sjmc.satisfiedmarket.blocks;
 
 import club.sjmc.satisfiedmarket.Utils;
+import club.sjmc.satisfiedmarket.blocks.MarketBlockUtils.MarketBlockTileEntity;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
