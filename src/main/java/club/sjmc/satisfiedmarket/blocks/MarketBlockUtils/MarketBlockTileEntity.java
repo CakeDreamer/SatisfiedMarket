@@ -1,8 +1,8 @@
 package club.sjmc.satisfiedmarket.blocks.MarketBlockUtils;
 
 import club.sjmc.satisfiedmarket.Utils;
-import club.sjmc.satisfiedmarket.blocks.MarketBlockUtils.MarketBlockGUIContainer;
-import club.sjmc.satisfiedmarket.blocks.MarketBlockUtils.Stock;
+import club.sjmc.satisfiedmarket.blocks.MarketBlockUtils.gui.BuyerGUIContainer;
+import club.sjmc.satisfiedmarket.blocks.MarketBlockUtils.stock.Stock;
 import club.sjmc.satisfiedmarket.blocks.TileEntityTypeRegistry;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
@@ -30,23 +30,22 @@ public class MarketBlockTileEntity extends TileEntity implements INamedContainer
     private Inventory inventory = new Inventory(4);
     public int capacity;
 
-
-
     public MarketBlockTileEntity() {
         super(TileEntityTypeRegistry.marketBlockTileEntity.get());
     }
 
     @Override
     public ITextComponent getDisplayName() {
-        return new TranslationTextComponent("gui." + Utils.MOD_ID + ".first_container");
+        return new TranslationTextComponent("gui." + Utils.MOD_ID + ".gui_container");
     }
 
     @Nullable
     @Override
     public Container createMenu(int sycID, PlayerInventory inventory, PlayerEntity player) {
-        return new MarketBlockGUIContainer(sycID, inventory, this.pos, this.world);
+        return new BuyerGUIContainer(sycID, inventory, this.pos, this.world);
     }
 
+    /*
     @Nullable
     @Override
     public SUpdateTileEntityPacket getUpdatePacket() {
@@ -61,4 +60,17 @@ public class MarketBlockTileEntity extends TileEntity implements INamedContainer
     public Inventory getInventory() {
         return inventory;
     }
+
+    @Override
+    public CompoundNBT getUpdateTag() {
+        CompoundNBT compoundNBT = super.getUpdateTag();
+        compoundNBT.
+        return compoundNBT;
+    }
+
+    @Override
+    public void handleUpdateTag(BlockState state, CompoundNBT tag) {
+        flag = tag.getBoolean("flag");
+    }
+    */
 }

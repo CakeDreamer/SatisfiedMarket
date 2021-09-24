@@ -34,6 +34,7 @@ public class MarketBlock extends Block {
         return new MarketBlockTileEntity();
     }
 
+    // TODO
     @Override
     public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
         if (!worldIn.isRemote && handIn == Hand.MAIN_HAND) {
